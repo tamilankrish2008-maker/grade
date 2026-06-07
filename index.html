@@ -1,0 +1,62 @@
+<!-- FUNCTION AND IF -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Mark 1: <input type="text" id="m1"> <br>
+    Mark 2: <input type="text" id="m2"> <br>
+    Mark 3: <input type="text" id="m3"> <br>
+    Mark 4: <input type="text" id="m4"> <br>
+    Mark 5: <input type="text" id="m5"> <br>
+    <button onclick="calculate()">Calculate</button>
+
+    <div id="results" >
+
+    </div>
+    <script>
+        function calculate() {
+            let m1 = document.getElementById("m1").value;
+            let m2 = document.getElementById("m2").value;
+            let m3 = document.getElementById("m3").value;
+            let m4 = document.getElementById("m4").value;
+            let m5 = document.getElementById("m5").value;
+            let total = Number(m1)+Number(m2)+Number(m3)+Number(m4)+Number(m5);
+            let avg = total/5;
+            let pass = 35;
+            let result = "";
+                let grade = "";
+            // alert("Total: "+Number(total).toFixed(2));
+            // alert("Average: "+Number(avg).toFixed(2));
+            document.getElementById("results").innerHTML += `<b>Total: </b>: ${Number(total).toFixed(2)}<br>`;
+            document.getElementById("results").innerHTML += `<b>Average: </b>: ${Number(avg).toFixed(2)}<br>`;
+            document.getElementById("results").innerHTML += `<b>Grade: </b>: ${grade}<br>`;
+            if (m1 >= pass && m2 >= pass && m3 >= pass && m4 >= pass && m5 >= pass) {
+                result = "pass";
+            } else {
+                result = "fail";
+            }
+            document.getElementById("results").innerHTML += `<b>Result </b>: ${result}<br>`;
+            document.getElementById("results").innerHTML += `<b>Grade: </b>: ${grade}<br>`;
+             if (avg >= 90) {
+                grade = "A+";
+            } else if (avg >= 80) {
+                grade = "A";  
+            } else if (avg >= 70) {
+                grade = "B";    
+            } else if (avg >= 60) {
+                grade = "C";    
+            } else if (avg >= 50) {
+                grade = "D";    
+            } else {
+                grade = "F";    
+            }
+             document.getElementById("results").innerHTML += `<b>Grade: </b>: ${grade}<br>`;
+
+        }
+    </script>
+</body>
+</html>
